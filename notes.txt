@@ -1,0 +1,32 @@
+--encapsulation: Emulated when we want one css file of a component to be global, which is the default of css
+-- #servername is local refrence, ex: reference to HTML input
+    onclick of a button pass the value of reference (sure we can use 2-way data binding)
+-- @ViewChild is of type ElementRef, can be used instead of local reference
+    @ViewChild serverContent
+    direct access to the dom => serverContent.nativeElement.value, dont change the dom just access the element
+-- ng-content
+    it is used when we want to render some html inside the app-component tag (main component)
+    <app-server>
+        render some html
+    </app-server>
+    by default is not working if we dont add <ng-content></ng-content> inside the app server html
+-- Lifecycle
+    ngOnChanges => called after a bound input property changes
+    ngOnInit => called when component is init, after contructor
+    ngDoCheck => called during every change detection run
+    ngOnDestroy
+-- @ContentChild
+    now we cant access the ng-conent inside the app server component with ViewChild because is not part
+    of that view, therefore we use ContentChild
+
+
+# Routing
+register routes in app.module
+routerLink = "/" doesn't reload the app
+queryParams  ?q=100
+fragment     #loading
+Router.navigate(['edit'], {realativeTo: ActivatedRoute})
+** redirectTo = 'not-found' which is a path to a not-found component, make sure is the last route
+implements CanActivate
+useHash: true if routing is not working in server
+
